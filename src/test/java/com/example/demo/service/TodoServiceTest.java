@@ -8,6 +8,7 @@ import static org.mockito.Mockito.when;
 import com.example.demo.entity.Todo;
 import com.example.demo.repository.TodoRepository;
 import java.util.Optional;
+import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -26,7 +27,7 @@ class TodoServiceTest {
   @Test
   void testFetToDoByIdWhenIdFound() {
     //GIVEN
-    Long todoId = 1L;
+    UUID todoId = UUID.randomUUID();
     Todo expectedTodo = new Todo(todoId, "Test Todo", false);
     Optional<Todo> expectedOptional = Optional.of(expectedTodo);
     when(todoRepository.findById(todoId)).thenReturn(expectedOptional);

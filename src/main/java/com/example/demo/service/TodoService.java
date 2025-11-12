@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.entity.Todo;
 import com.example.demo.repository.TodoRepository;
 import java.util.List;
+import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ public class TodoService {
   @Autowired
   private TodoRepository todoRepository;
 
-  public Todo getTodoById(Long todoId) {
+  public Todo getTodoById(UUID todoId) {
     return todoRepository.findById(todoId).get();
   }
 

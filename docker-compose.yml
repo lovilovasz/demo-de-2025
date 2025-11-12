@@ -1,0 +1,18 @@
+services:
+  db:
+    image: postgres
+    container_name: todo-db
+    environment:
+      POSTGRES_USER: username
+      # igy nem szabad beallitani jelszot, mindig haszbnaljatok kornyezeti valtozokat
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+  app:
+    build: .
+    container_name: todo-app
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"

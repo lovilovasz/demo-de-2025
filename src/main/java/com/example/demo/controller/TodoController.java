@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.entity.Todo;
 import com.example.demo.service.TodoService;
 import java.util.List;
+import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +28,7 @@ public class TodoController {
   }
 
   @GetMapping("/todo/{todoId}")
-  public Todo getTodoById(@PathVariable Long todoId) {
+  public Todo getTodoById(@PathVariable UUID todoId) {
     return todoService.getTodoById(todoId);
   }
 
